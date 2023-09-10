@@ -48,14 +48,16 @@ class BMIGenerator:
 
 
 # Buat dataset dengan 1000 nilai BMI acak berdasarkan jenis kelamin dan status
-bmi_generator = BMIGenerator()
+
 dataset = []
-for _ in range(1000):
+for _ in range(5000):
+    bmi_generator = BMIGenerator()
     bmi_data = bmi_generator.get_bmi_data()
+    print(bmi_data)
     dataset.append(bmi_data)
 
 # Simpan dataset ke dalam file CSV
-with open("data/dataset_bmi.csv", "w", newline="") as csvfile:
+with open("./dataset_bmi.csv", "w", newline="") as csvfile:
     fieldnames = ["Gender", "Height", "Weight", "BMI", "Status"]
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
@@ -63,4 +65,4 @@ with open("data/dataset_bmi.csv", "w", newline="") as csvfile:
     for bmi_data in dataset:
         writer.writerow(bmi_data)
 
-print("Dataset BMI telah dibuat dan disimpan dalam file 'dataset_bmi.csv'.")
+print("Dataset BMI telah dibuat dan disimpan dalam file 'dataset_bmii.csv'.")

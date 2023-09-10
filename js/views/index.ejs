@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulir POST</title>
+    <!-- Tambahkan link ke file Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-md-6">
+                <form id="myForm" method="POST" action="http://127.0.0.1:5000/predict">
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select class="form-control" id="gender" name="gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight</label>
+                        <input type="number" class="form-control" id="weight" name="weight" placeholder="Berat (kg)">
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Height</label>
+                        <input type="number" class="form-control" id="height" name="height" placeholder="Tinggi (cm)">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kirim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+     <!-- Script JavaScript untuk menangani pengiriman formulir dan respons -->
+     <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah halaman di-refresh
+
+            // Mengambil data dari formulir
+            const formData = new FormData(event.target);
+            console.log(formData);
+            // Kirim data ke endpoint ML (ganti URL dengan endpoint yang sesuai)
+            fetch("http://127.0.0.1:5000/predict", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text()) // Mengubah respons ke teks
+            .then(data => {
+                // Menampilkan respons sebagai alert
+                alert("PREDIKSI: " + data);
+            })
+            .catch(error => {
+                console.error("Terjadi kesalahan:", error);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
