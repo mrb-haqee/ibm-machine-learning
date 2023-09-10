@@ -1,4 +1,5 @@
-# Tugas Akhir Matakuliah OOP dan KOMPUTASI MEDIS
-Name: Muhammad Rafli Baihaqi
-NIM: 2008541066
+## Tugas Akhir Matakuliah OOP dan KOMPUTASI MEDIS
+
+Name: Muhammad Rafli Baihaqi <br>
+NIM: 2008541066 <br>
 Dosen: I GN Lanang Wijayakusuma, S.Si., M.Kom.
